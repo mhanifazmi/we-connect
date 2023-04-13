@@ -49,7 +49,7 @@
         <!-- Page Body Start-->
         <div class="page-body-wrapper">
             <!-- Page Sidebar Start-->
-            @includeIf('layouts.sidebar')
+            {{-- @includeIf('layouts.sidebar') --}}
             <!-- Page Sidebar Ends-->
             <div class="page-body"
                 style="background-image: url('{{ $image }}'); height: 100%; background-repeat: no-repeat; background-size: cover;">
