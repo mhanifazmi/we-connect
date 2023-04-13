@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div @if (auth()->check()) id="draggableMultiple"> @endif
+                <div @if (auth()->check()) id="draggableMultiple"> @endif>
                     @foreach ($user->links as $key => $link)
                         <a href="{{ $link->url }}">
                             <div class="light-card balance-card widget-hover bg-white mb-4" style="color: initial;">
@@ -75,19 +75,20 @@
                                 </div>
                             </div> --}}
                             </div>
-                        </a> @endforeach
-                    </div>
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>
-    @endsection
-    @section('javascript')
-        <script>
-            localStorage.clear();
-            $(".page-wrapper").attr("class", "page-wrapper only-body");
-            localStorage.setItem('page-wrapper', 'only-body');
-        </script>
-        <script src="{{ asset('assets/js/jquery.ui.min.js') }}"></script>
-        <script src="{{ asset('assets/js/dragable/sortable.js') }}"></script>
-        <script src="{{ asset('assets/js/dragable/sortable-custom.js') }}"></script>
-    @endsection
+    </div>
+@endsection
+@section('javascript')
+    <script>
+        localStorage.clear();
+        $(".page-wrapper").attr("class", "page-wrapper only-body");
+        localStorage.setItem('page-wrapper', 'only-body');
+    </script>
+    <script src="{{ asset('assets/js/jquery.ui.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dragable/sortable.js') }}"></script>
+    <script src="{{ asset('assets/js/dragable/sortable-custom.js') }}"></script>
+@endsection
