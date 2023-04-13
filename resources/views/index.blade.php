@@ -52,7 +52,7 @@
                 </div>
                 <div @if (auth()->check()) id="draggableMultiple"> @endif>
                     @foreach ($user->links as $key => $link)
-                        <a href="{{ $link->url }}">
+                        <a target="_blank" href="{{ $link->url }}">
                             <div class="light-card balance-card widget-hover bg-white mb-4" style="color: initial;">
                                 <div class="svg-box" style="background-color: #d8e1ff; font-size: 30px;">
                                     <i class="<?= $link->icon ?>"></i>
