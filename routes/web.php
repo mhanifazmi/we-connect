@@ -5,13 +5,21 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Session;
 
-Route::get('', [HomeController::class, 'index'])
+
+Route::get('{connect:url}', [HomeController::class, 'index'])
     ->name('index');
 
-Route::get('{user:url}', [HomeController::class, 'link'])
-    ->name('card.index');
+Route::get('go-to/{type}/{foreign_key_id}', [HomeController::class, 'goTo'])
+    ->name('go-to');
 
-Route::get('dashboard', [HomeController::class, 'dashboard'])
+Route::get('dashboard', [HomeController::class, 'index'])
     ->name('dashboard');
 
-require __DIR__ . '/web/auth.php';
+Route::group(['prefix' => 'cms'], function () {
+    Route::get('dashboard', [HomeController::class, 'cms'])
+        ->name('cms.index');
+    require __DIR__ . '/web/auth.php';
+    require __DIR__ . '/web/user.php';
+    require __DIR__ . '/web/role.php';
+    require __DIR__ . '/web/link.php';
+});

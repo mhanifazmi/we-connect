@@ -17,6 +17,7 @@
 <script src="{{ asset('assets/js/slick/slick.min.js') }}"></script>
 <script src="{{ asset('assets/js/slick/slick.js') }}"></script>
 <script src="{{ asset('assets/js/header-slick.js') }}"></script>
+<script src="{{ asset('assets/js/height-equal.js') }}"></script>
 @yield('script')
 
 @if (Route::current()->getName() != 'popover')
@@ -26,7 +27,7 @@
 <!-- Plugins JS Ends-->
 <!-- Theme js-->
 <script src="{{ asset('assets/js/script.js') }}"></script>
-<script src="{{ asset('assets/js/theme-customizer/customizer.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/theme-customizer/customizer.js') }}"></script> --}}
 
 
 {{-- @if (Route::current()->getName() == 'index')
@@ -38,3 +39,8 @@
         new WOW().init();
     </script>
 @endif
+
+<script>
+    $(".page-wrapper").attr("class", "page-wrapper compact-wrapper");
+    localStorage.setItem('page-wrapper', 'compact-wrapper');
+</script>

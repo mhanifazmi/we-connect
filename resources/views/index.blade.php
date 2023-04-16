@@ -1,37 +1,14 @@
 @extends('layouts.master', compact('image'))
 @section('content')
-    @if (auth()->check())
-        <div class="container-fluid" style="z-index: 10; position: absolute">
-            <div class="page-title">
-                <div class="row">
-                    <div class="col-6">
-                        <h3>Default</h3>
-                    </div>
-                    <div class="col-6">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">
-                                    <svg class="stroke-icon">
-                                        <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-home') }}"></use>
-                                    </svg></a></li>
-                            <li class="breadcrumb-item">Dashboard</li>
-                            <li class="breadcrumb-item active">Default</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
     <!-- Container-fluid starts-->
 
     <div class="container-fluid">
         <div class="row widget-grid d-flex justify-content-center">
-            <div class="col-xl-4 col-sm-6 col-xxl-3 col-ed-4 box-col-4"
-                style="@if (auth()->check()) margin-top: 10rem !important @else margin-top: 3rem !important @endif">
+            <div class="col-xl-4 col-sm-6 col-xxl-3 col-ed-4 box-col-4" style="margin-top: 3rem">
                 <div class="card social-profile">
                     <div class="card-body">
                         <div class="social-img-wrap">
-                            <div class="social-img"><img src="{{ asset('storage/images/profile.jpg') }}" alt="profile">
+                            <div class="social-img"><img src="{{ asset('storage/images/' . $user->image) }}" alt="profile">
                             </div>
                         </div>
                         <div class="social-details">
@@ -50,18 +27,17 @@
                         </div>
                     </div>
                 </div>
-                <div @if (auth()->check()) id="draggableMultiple"> @endif>
-                    @foreach ($user->links as $key => $link)
-                        <a target="_blank" href="{{ $link->url }}">
-                            <div class="light-card balance-card widget-hover bg-white mb-4" style="color: initial;">
-                                <div class="svg-box" style="background-color: #d8e1ff; font-size: 30px;">
-                                    <i class="<?= $link->icon ?>"></i>
-                                </div>
-                                <div>
-                                    <h6 class="mt-1 mb-0"><?= $link->name ?></h6>
-                                    <span class="f-light"><?= $link->description ?></span>
-                                </div>
-                                {{-- <div class="ms-auto text-end">
+                @foreach ($user->links as $key => $link)
+                    <a target="_blank" href="{{ route('go-to', ['type' => 'Link', 'foreign_key_id' => $link->hash_id]) }}">
+                        <div class="light-card balance-card widget-hover bg-white mb-4" style="color: initial;">
+                            <div class="svg-box" style="background-color: #d8e1ff; font-size: 30px;">
+                                <i class="<?= $link->icon ?>"></i>
+                            </div>
+                            <div>
+                                <h6 class="mt-1 mb-0"><?= $link->name ?></h6>
+                                <span class="f-light"><?= $link->description ?></span>
+                            </div>
+                            {{-- <div class="ms-auto text-end">
                                 <div class="dropdown icon-dropdown">
                                     <button class="btn dropdown-toggle" id="incomedropdown" type="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,10 +50,9 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            </div>
-                        </a>
-                    @endforeach
-                </div>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>

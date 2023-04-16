@@ -41,9 +41,6 @@
     <!-- page-wrapper Start-->
     <div class="page-wrapper compact-wrapper" id="pageWrapper">
         <!-- Page Header Start-->
-        @if (auth()->check())
-            @includeIf('layouts.header')
-        @endif
         <!-- Page Header Ends-->
         <!-- Page Body Start-->
         <div class="page-body-wrapper">
@@ -51,7 +48,7 @@
             {{-- @includeIf('layouts.sidebar') --}}
             <!-- Page Sidebar Ends-->
             <div class="page-body"
-                style="background-image: url('{{ $image }}'); height: 100%; background-repeat: no-repeat; background-size: cover;">
+                style="background-image: url('{{ asset('storage/backgrounds/' . $user->background) }}'); height: 100%; background-repeat: no-repeat; background-size: cover;">
                 <!-- Container-fluid starts-->
                 <div class="glass"></div>
                 @yield('content')

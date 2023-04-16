@@ -1,23 +1,22 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['public/assets/scss/app.scss', 'resources/js/app.js'],
+            input: ["public/assets/scss/app.scss", "resources/js/app.js"],
             refresh: true,
         }),
         {
-            name: 'blade',
+            name: "blade",
             handleHotUpdate({ file, server }) {
-                if (file.endsWith('.blade.php')) {
+                if (file.endsWith(".blade.php")) {
                     server.ws.send({
-                        type: 'full-reload',
-                        path: '*',
+                        type: "full-reload",
+                        path: "*",
                     });
                 }
             },
-        }
+        },
     ],
-    
 });

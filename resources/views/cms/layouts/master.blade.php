@@ -6,13 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
-    <meta name="keywords"
-        content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
+        content="Explore a diverse range of user links and URLs all in one convenient location! From social media profiles and personal websites to blogs and online portfolios, discover the wealth of content that users have to offer. Visit now to access a comprehensive collection of links and explore the web like never before.">
+    <meta name="keywords" content="connect, link, url, mhanifazmi">
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
-    <title>Cuba - Premium Admin Template</title>
+    <title>We Connect | CMS</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap"
         rel="stylesheet">
@@ -21,6 +20,29 @@
     @include('layouts.css')
     @yield('style')
 </head>
+<style>
+    div .action .show {
+        margin-right: 5px;
+    }
+
+    div .action .show i {
+        color: #7366ff;
+    }
+
+    [dir=rtl] div .action .show {
+        margin-left: 5px;
+    }
+
+    .icon-lists {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid lightgray;
+    }
+
+    .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content>li .sidebar-link.active {
+        margin-bottom: 0px;
+    }
+</style>
 
 <body
     @if (Route::current()->getName() == 'index') onload="startTime()" @elseif (Route::current()->getName() == 'button-builder') class="button-builder" @endif>
@@ -41,29 +63,19 @@
     <!-- page-wrapper Start-->
     <div class="page-wrapper compact-wrapper" id="pageWrapper">
         <!-- Page Header Start-->
-        @include('layouts.header')
+        @include('cms.layouts.header')
         <!-- Page Header Ends  -->
         <!-- Page Body Start-->
         <div class="page-body-wrapper">
             <!-- Page Sidebar Start-->
-            @include('layouts.vertical-sidebar')
+            @include('cms.layouts.sidebar')
             <!-- Page Sidebar Ends-->
             <div class="page-body">
                 <div class="container-fluid">
                     <div class="page-title">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12">
                                 @yield('breadcrumb-title')
-                            </div>
-                            <div class="col-6">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('index') }}">
-                                            <svg class="stroke-icon">
-                                                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-home') }}"></use>
-                                            </svg></a></li>
-                                    </li>
-                                    @yield('breadcrumb-items')
-                                </ol>
                             </div>
                         </div>
                     </div>
@@ -73,12 +85,12 @@
                 <!-- Container-fluid Ends-->
             </div>
             <!-- footer start-->
-            @include('layouts.footer')
+            @include('cms.layouts.footer')
 
         </div>
     </div>
     <!-- latest jquery-->
-    @include('layouts.script')
+    @include('cms.layouts.script')
     <!-- Plugin used-->
 
 </body>

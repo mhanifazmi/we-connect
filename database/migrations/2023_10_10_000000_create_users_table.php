@@ -19,6 +19,14 @@ return new class extends Migration
             $table->string('url');
             $table->string('full_name');
             $table->string('description');
+
+            $table->unsignedBigInteger('role_id')->default(1);
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
             $table->string('image');
             $table->string('background');
             $table->string('email')->unique();

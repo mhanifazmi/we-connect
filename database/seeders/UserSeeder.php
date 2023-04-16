@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Link;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,7 +21,7 @@ class UserSeeder extends Seeder
                 'full_name' => 'Muhammad Hanif bin Azmi',
                 'url' => 'mhanifazmi',
                 'description' => '3 years experience in web development looking for a position to sharpen my technical and soft skills in the hope of becoming the best in Software Engineering field as well as in your company.',
-                'image' => '',
+                'image' => 'mhanifazmi.png',
                 'background' => 'default.png',
                 'email' => 'hanifazmi23@gmail.com',
                 'password' => bcrypt('12341234'),
@@ -49,7 +50,8 @@ class UserSeeder extends Seeder
                         'order' => 3,
                         'url' => 'https://t.me/mhanifazmi',
                     ],
-                ]
+                ],
+                'role_id' => Role::IS_SUPERADMIN
             ]
         ];
 

@@ -9,8 +9,4 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends BaseModel
 {
     use HasFactory;
-
-    protected $fillable = [
-        'name',
-    ];
 }

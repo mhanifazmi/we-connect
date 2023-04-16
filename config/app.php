@@ -195,6 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         MarkSitko\LaravelUnsplash\UnsplashServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 
